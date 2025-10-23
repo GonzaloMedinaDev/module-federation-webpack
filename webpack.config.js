@@ -8,12 +8,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: 'development',
+  mode: 'production', // production | development
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:3000/',
+    // publicPath: 'http://localhost:3000/',
     clean: true
   },
   module: {
@@ -51,12 +51,12 @@ export default {
           react: {
             singleton: true,
             requiredVersion: '^17.0.2',
-            eager: true,
+            eager: false,
           },
           'react-dom': {
             singleton: true,
             requiredVersion: '^17.0.2',
-            eager: true,
+            eager: false,
           },
           '@contpaqi/ux-library': {
             eager: true, // Debe ser eager si el Remote la usa directamente
