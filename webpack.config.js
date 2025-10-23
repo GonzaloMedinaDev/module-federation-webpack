@@ -59,7 +59,7 @@ export default {
             eager: false,
           },
           '@contpaqi/ux-library': {
-            eager: true, // Debe ser eager si el Remote la usa directamente
+            eager: false,
             singleton: true, 
           },
         },
