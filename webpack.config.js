@@ -41,11 +41,11 @@ export default {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
-        name: 'JournalEntry_MFE', // Nombre del Remote
-        filename: 'remoteEntry.js', // Archivo que el Host descargará
+        name: 'JournalEntry_MFE',
+        filename: 'remoteEntry.js',
         exposes: {
-          './JournalEntry': './src/remote-entry.js', // Tu punto de entrada principal
-          './tailwindStyles': './src/globals.css', // ¡EXPOSICIÓN DIRECTA DEL CSS!
+          './JournalEntry': './src/remote-entry.js',
+          './TailwindStyles': './src/globals.css',
         },
         shared: {
           react: {
