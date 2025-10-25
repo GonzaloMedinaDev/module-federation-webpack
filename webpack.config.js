@@ -45,6 +45,7 @@ export default {
         filename: 'remoteEntry.js',
         exposes: {
           './JournalEntry': './src/remote-entry.js',
+          './JournalEntryMount': './src/mount-app.js',
           './TailwindStyles': './src/globals.css',
         },
         shared: {
