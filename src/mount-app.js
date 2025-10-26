@@ -19,3 +19,17 @@ export function mount(container) {
   );
 }
 
+// --- 💡 Función Unmount (Nueva) ---
+/**
+ * Realiza la limpieza del MFE utilizando el método de React v18 (unmount).
+ * @param {HTMLElement} container - El elemento DOM (mountPoint) que contiene la raíz.
+ */
+export function unmount(container) {
+  if (container.root) {
+    // 🚨 Usamos el método unmount de la raíz de v18
+    container.root.unmount();
+    // Limpiamos la referencia para que React pueda recrearla si se monta de nuevo
+    delete container.root; 
+    console.log("MFE: Componente desmontado con éxito.");
+  }
+}
