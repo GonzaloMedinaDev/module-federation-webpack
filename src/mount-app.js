@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// 🚨 CAMBIO AQUÍ: Importar la aplicación principal (App.js)
 import App from './App'; 
 
 /**

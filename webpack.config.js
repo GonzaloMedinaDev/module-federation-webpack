@@ -49,16 +49,16 @@ export default {
           './TailwindStyles': './src/globals.css',
         },
         shared: {
-          react: {
-            singleton: true,
-            requiredVersion: '^17.0.2',
-            eager: false,
-          },
-          'react-dom': {
-            singleton: true,
-            requiredVersion: '^17.0.2',
-            eager: false,
-          },
+          // react: {
+          //   singleton: true,
+          //   requiredVersion: '^17.0.2',
+          //   eager: false,
+          // },
+          // 'react-dom': {
+          //   singleton: true,
+          //   requiredVersion: '^17.0.2',
+          //   eager: false,
+          // },
           '@contpaqi/ux-library': {
             eager: false,
             singleton: true, 
