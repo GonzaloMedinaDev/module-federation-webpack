@@ -46,10 +46,7 @@ export default {
         exposes: {
           './JournalEntry': './src/remote-entry.js',
           './JournalEntryMount': './src/mount-app.js',
-          './TailwindStyles': {
-            import: './src/globals.css',
-            eager: true,
-          },
+          './TailwindStyles': './src/globals.css',
         },
         shared: {
           // react: {
