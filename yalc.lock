@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@contpaqi/ux-library": {
+      "signature": "3bc9091f8c34f1e008e30725cea63fd5",
+      "file": true
+    }
+  }
+}

@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App'; 
+import App from './App';
+// import App from './App_basic'; 
 
 /**
- * Función que realiza el montaje del MFE.
- * Se exporta para que el Host la pueda llamar.
- * @param {HTMLElement} container - El elemento DOM donde se montará el MFE.
+ * @param {HTMLElement} container
  */
+
 export function mount(container) {
-  if (!container.root) {
-    container.root = ReactDOM.createRoot(container);
-  }
+  if (!container.root) container.root = ReactDOM.createRoot(container);
 
   container.root.render(
     <React.StrictMode>
@@ -19,16 +17,13 @@ export function mount(container) {
   );
 }
 
-// --- 💡 Función Unmount (Nueva) ---
 /**
- * Realiza la limpieza del MFE utilizando el método de React v18 (unmount).
- * @param {HTMLElement} container - El elemento DOM (mountPoint) que contiene la raíz.
+ * @param {HTMLElement} container
  */
+
 export function unmount(container) {
   if (container.root) {
-    // 🚨 Usamos el método unmount de la raíz de v18
     container.root.unmount();
-    // Limpiamos la referencia para que React pueda recrearla si se monta de nuevo
     delete container.root; 
     console.log("MFE: Componente desmontado con éxito.");
   }

@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@contpaqi/ux-library": "file:.yalc/@contpaqi/ux-library",
     "@tailwindcss/postcss": "^4.1.16",
     "postcss": "^8.5.6",
     "react": "^18.3.1",
@@ -24,6 +25,7 @@
     "@babel/preset-react": "^7.28.5",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
+    "dotenv-webpack": "^8.1.1",
     "esbuild-loader": "^4.4.0",
     "html-webpack-plugin": "^5.6.4",
     "postcss-loader": "^8.2.0",

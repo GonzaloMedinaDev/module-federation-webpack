@@ -8,12 +8,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: 'production', // production | development
+  mode: process.env.DEV_ENV | 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    // publicPath: 'http://localhost:3000/',
     clean: true
   },
   module: {
@@ -35,35 +34,29 @@ export default {
       },
     ]
   },
+  performance: {
+    hints: false, 
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
-        name: 'JournalEntry_MFE',
-        filename: 'remoteEntry.js',
-        exposes: {
-          './JournalEntry': './src/remote-entry.js',
-          './JournalEntryMount': './src/mount-app.js',
-          './TailwindStyles': './src/globals.css',
+      name: 'JournalEntry_MFE',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './JournalEntry': './src/remote-entry.js',
+        './JournalEntryMount': './src/mount-app.js',
+        './TailwindStyles': './src/globals.css',
+      },
+      shared: {
+        '@contpaqi/ux-library': {
+          singleton: true, 
+          requiredVersion: '^0.1.1',
+          eager: true,
         },
-        shared: {
-          // react: {
-          //   singleton: true,
-          //   requiredVersion: '^17.0.2',
-          //   eager: false,
-          // },
-          // 'react-dom': {
-          //   singleton: true,
-          //   requiredVersion: '^17.0.2',
-          //   eager: false,
-          // },
-          '@contpaqi/ux-library': {
-            eager: false,
-            singleton: true, 
-          },
-        },
+      },
     }),
   ],
   resolve: {
@@ -74,9 +67,11 @@ export default {
     port: 3000,
     hot: true,
     open: true,
-    liveReload: false,
+    liveReload: true, // antes era false
     headers: {
-        'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     }
   }
 };
