@@ -10,7 +10,7 @@ import {
 
 function App() {
   return (
-    <ProviderCT>
+    <ProviderCT theme>
       <div className='bg-slate-300 p-6'>
         <HeadingCT type='primary'>App Remote (Webpack 5 / React 18)</HeadingCT>
         <p className='mb-6 mt-4'>{process.env.DEV_ENV} # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce semper enim in commodo pretium. Praesent aliquam, dolor eget sodales ultrices, elit nunc ullamcorper velit, ac mattis nulla dui at leo. In ac dolor a tortor consectetur scelerisque vel at nunc. In porttitor at nibh sit amet feugiat. Cras sit amet nulla id nisl blandit tempus.</p>
