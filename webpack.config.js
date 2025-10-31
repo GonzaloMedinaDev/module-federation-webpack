@@ -53,13 +53,13 @@ export default {
         './JournalEntryMount': './src/mount-app.js',
         './TailwindStyles': './src/globals.css',
       },
-      // shared: {
-      //   '@contpaqi/ux-library': {
-      //     singleton: true, 
-      //     requiredVersion: '^0.1.1',
-      //     eager: true,
-      //   },
-      // },
+      shared: {
+        '@contpaqi/ux-library': {
+          singleton: true, 
+          requiredVersion: '^0.1.1',
+          eager: true,
+        },
+      },
     }),
   ],
   resolve: {
