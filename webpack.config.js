@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  mode: process.env.DEV_ENV || 'development',
+  mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -42,7 +42,7 @@ export default {
       template: './public/index.html'
     }),
     new webpack.DefinePlugin({
-      'process.env.DEV_ENV': JSON.stringify(process.env.DEV_ENV || 'development')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
