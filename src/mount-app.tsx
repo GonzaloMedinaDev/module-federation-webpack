@@ -1,31 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import type { Root } from 'react-dom/client';
 import App from './App';
-// import App from './App_basic'; 
-// Averiguar si puedo quitar un param
+import { hostProps } from '../types';
 
-/**
- * @param {HTMLElement} container
- */
-
-export function mount(container) {
+export function mount(container: ContainerWithRoot, hostProps:hostProps) {
   if (!container.root) container.root = ReactDOM.createRoot(container);
+
+  console.log('hostProps', hostProps);
 
   container.root.render(
     <React.StrictMode>
-      <App />
+      <App hostProps={hostProps} />
     </React.StrictMode>
   );
 }
 
-/**
- * @param {HTMLElement} container
- */
-
-export function unmount(container) {
+export function unmount(container: any) {
   if (container.root) {
     container.root.unmount();
     delete container.root; 
     console.log("MFE: Componente desmontado con éxito.");
   }
+}
+
+interface ContainerWithRoot extends HTMLElement {
+  root?: Root;
 }

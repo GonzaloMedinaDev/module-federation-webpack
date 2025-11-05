@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 export default {
   mode: process.env.NODE_ENV || 'development',
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -17,12 +17,23 @@ export default {
   },
   module: {
     rules: [
+{
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'tsx',
+          target: 'es2020',
+        },
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'jsx',
+          target: 'es2020',
+        },
       },
       { 
         test: /\.css$/,
@@ -49,8 +60,8 @@ export default {
       name: 'JournalEntry_MFE',
       filename: 'remoteEntry.js',
       exposes: {
-        './JournalEntry': './src/remote-entry.js',
-        './JournalEntryMount': './src/mount-app.js',
+        // './JournalEntry': './src/remote-entry.ts',
+        './JournalEntryMount': './src/mount-app.tsx',
         './TailwindStyles': './src/globals.css',
       },
       shared: {
@@ -63,7 +74,7 @@ export default {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   devServer: {
     static: './dist',
